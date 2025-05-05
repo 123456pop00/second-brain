@@ -1,0 +1,3458 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../028-elastic-beanstalk/">
+      
+      
+        <link rel="next" href="../030-cloudformation/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>029 AWS Code Services - SECOND-BRAIN DOCUMENTATION</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.2afb09e1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aws-code-services" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="SECOND-BRAIN DOCUMENTATION" class="md-header__button md-logo" aria-label="SECOND-BRAIN DOCUMENTATION" data-md-component="logo">
+      
+  <img src="../../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SECOND-BRAIN DOCUMENTATION
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              029 AWS Code Services
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/123456pop00/second-brain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    second-brain-documentation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../workflows/git/" class="md-tabs__link">
+          
+  
+  
+  Workflows
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../database/" class="md-tabs__link">
+          
+  
+  
+  Database
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../guides/environments/" class="md-tabs__link">
+          
+  
+  
+  Contributions
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../examples/markdown/cheat-sheet/" class="md-tabs__link">
+          
+  
+  
+  Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../blog/" class="md-tabs__link">
+          
+  
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Cloud
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="SECOND-BRAIN DOCUMENTATION" class="md-nav__button md-logo" aria-label="SECOND-BRAIN DOCUMENTATION" data-md-component="logo">
+      
+  <img src="../../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    SECOND-BRAIN DOCUMENTATION
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/123456pop00/second-brain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    second-brain-documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Workflows
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Workflows
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../workflows/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../workflows/task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Task
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Conventions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Conventions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_1" id="__nav_1_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Coding
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Coding
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../conventions/coding/c-sharp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C#
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../conventions/coding/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../conventions/coding/type-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TypeScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../conventions/coding/html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTML
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../conventions/coding/css-scss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS-SCSS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Checklists
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Checklists
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../checklists/v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    V1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../checklists/v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    V2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MR Templates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            MR Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../merge-request-templates/v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    V1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../merge-request-templates/v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    V2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tổng quan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contributions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Contributions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cài đặt môi trường
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/contributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Viết tài liệu và submit tài liệu lên hệ thống
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/tagging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gắn thẻ cho tài liệu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../examples/markdown/cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Markdown
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PlantUML
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            PlantUML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../examples/plantuml/sequence-diagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Biểu đồ tuần tự
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../examples/plantuml/use-case-diagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Biểu đồ ca sử dụng
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../examples/plantuml/activity-diagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Biểu đồ hoạt động
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Archive
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2025
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/archive/2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Categories
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/c-advanced-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C# advanced series
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Coding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/technical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Technical
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tổng quan về AWS services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_1_2" id="__nav_7_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS services
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../001-asg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    001 Auto Scaling Group (ASG)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../001-aws-identity-access-and-organizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    001 AWS Identity Access and Organizations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../002-aws-ec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    002 AWS EC2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../003-aws-elb-asg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    003 AWS ELB & ASG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../004-aws-s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    004 AWS S3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../005-aws-databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    005 AWS Databases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../006-aws-compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    006 AWS Compute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../007-aws-infrastructure-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    007 AWS Infrastructure Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../008-aws-global-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    008 AWS Global Infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../009-aws-cloud-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    009 AWS Cloud Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010-aws-cloud-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    010 AWS Cloud Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../011-aws-vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    011 AWS VPC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../012-aws-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    012 AWS Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../013-aws-machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    013 AWS Machine Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../014-aws-pricing-and-billing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    014 AWS Pricing and Billing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../015-aws-cognito/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    015 AWS Cognito
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../016-aws-architecting-and-ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    016 AWS Architecting and Ecosystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../017-aws-route-53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    017 AWS Route 53
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../018-aws-lambda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    018 AWS Lambda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../019-apigateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    019 AWS API Gateway
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../020-dynamodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    020 DynamoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../021-sam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    021 AWS SAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../022-step-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    022 AWS Step Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../023-cognito/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    023 AWS Cognito
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../024-app-sync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    024 AWS AppSync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../025-sqs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    025 AWS SQS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../026-sns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    026 AWS SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../027-kinesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    027 AWS Kinesis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../028-elastic-beanstalk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    028 AWS Elastic Beanstalk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    029 AWS Code Services
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    029 AWS Code Services
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-codecommit" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodeCommit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codebuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodeBuild
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codedeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodeDeploy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codepipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodePipeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codeartifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodeArtifact
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codestar" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodeStar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../030-cloudformation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    030 AWS CloudFormation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../031-cloudwatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    031 AWS CloudWatch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../032-kms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    032 AWS KMS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../033-aws-athena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    033 AWS Athena
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../034-aws-opensearch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    034 AWS OpenSearch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../035-aurora-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    035 AWS Aurora Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../036-fargate-compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    036 AWS Fargate Compute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../037-ecs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    037 AWS ECS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../038-xray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    038 AWS XRay
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../aws/exam-questions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exam questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-codecommit" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodeCommit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codebuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodeBuild
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codedeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodeDeploy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codepipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodePipeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codeartifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodeArtifact
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codestar" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodeStar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/123456pop00/second-brain/edit/master/docs/cloud/aws/services/029-aws-code-services.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/123456pop00/second-brain/raw/master/docs/cloud/aws/services/029-aws-code-services.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="aws-code-services">AWS Code Services<a class="headerlink" href="#aws-code-services" title="Permanent link">#</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>AWS provides a suite of developer tools to help you build, test, and deploy your code quickly and securely. These services support continuous integration and continuous delivery (CI/CD) workflows.</p>
+<h2 id="key-services">Key Services<a class="headerlink" href="#key-services" title="Permanent link">#</a></h2>
+<h3 id="aws-codecommit">AWS CodeCommit<a class="headerlink" href="#aws-codecommit" title="Permanent link">#</a></h3>
+<ul>
+<li>Managed source control service that hosts private Git repositories</li>
+<li>Secure, scalable, and highly available</li>
+<li>Supports code collaboration and version control</li>
+</ul>
+<h3 id="aws-codebuild">AWS CodeBuild<a class="headerlink" href="#aws-codebuild" title="Permanent link">#</a></h3>
+<ul>
+<li>Fully managed build service</li>
+<li>Compiles source code, runs tests, and produces deployable artifacts</li>
+<li>Scales automatically and integrates with other AWS services</li>
+</ul>
+<h3 id="aws-codedeploy">AWS CodeDeploy<a class="headerlink" href="#aws-codedeploy" title="Permanent link">#</a></h3>
+<ul>
+<li>Automates code deployments to EC2, Lambda, and on-premises servers</li>
+<li>Supports blue/green and rolling deployments</li>
+<li>Tracks deployment health and rollback</li>
+</ul>
+<h3 id="aws-codepipeline">AWS CodePipeline<a class="headerlink" href="#aws-codepipeline" title="Permanent link">#</a></h3>
+<ul>
+<li>Continuous integration and delivery service</li>
+<li>Automates build, test, and deploy phases</li>
+<li>Integrates with CodeCommit, CodeBuild, CodeDeploy, and third-party tools</li>
+</ul>
+<h3 id="aws-codeartifact">AWS CodeArtifact<a class="headerlink" href="#aws-codeartifact" title="Permanent link">#</a></h3>
+<ul>
+<li>Artifact repository for software packages</li>
+<li>Supports npm, Maven, PyPI, and NuGet</li>
+<li>Secure and scalable package management</li>
+</ul>
+<h3 id="aws-codestar">AWS CodeStar<a class="headerlink" href="#aws-codestar" title="Permanent link">#</a></h3>
+<ul>
+<li>Unified interface for managing software development activities</li>
+<li>Integrates with Code* services and third-party tools</li>
+<li>Provides project templates and dashboards</li>
+</ul>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">#</a></h2>
+<ul>
+<li>Use managed services for scalability and reliability</li>
+<li>Automate build, test, and deployment workflows</li>
+<li>Monitor pipeline health and set up alerts</li>
+<li>Secure code repositories and artifacts with IAM and encryption</li>
+<li>Use version control and branching strategies</li>
+</ul>
+<h1 id="code-build">Code Build<a class="headerlink" href="#code-build" title="Permanent link">#</a></h1>
+<ul>
+<li>Fully managed build service</li>
+<li>Alternative to other build tools such as Jenkins</li>
+<li>Continuous scaling (no servers to manage or provision – no build queue)</li>
+<li>Pay for usage: the time it takes to complete the builds</li>
+<li>Leverages Docker under the hood for reproducible builds</li>
+<li>Possibility to extend capabilities leveraging our own base Docker images</li>
+<li>Secure: Integration with KMS for encryption of build artifacts, IAM for build permissions, and VPC for network security, CloudTrail for API calls logging</li>
+</ul>
+<h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">#</a></h3>
+<ul>
+<li>Source Code from GitHub / CodeCommit / CodePipeline / S3...</li>
+<li>Build instructions can be defined in code<ul>
+<li>buildspec.yml file</li>
+</ul>
+</li>
+<li>Output logs to Amazon S3 &amp; AWS CloudWatch Logs</li>
+<li>Metrics to monitor CodeBuild statistics</li>
+<li>Use CloudWatch Events to detect failed builds and trigger notifications - Use CloudWatch Alarms to notify if you need “thresholds” for failures</li>
+<li>CloudWatch Events / AWS Lambda as a Glue</li>
+<li>SNS notifications</li>
+<li>Ability to reproduce CodeBuild locally to troubleshoot in case of errors</li>
+<li>Pipelines can be defined within CodePipeline or CodeBuild itself</li>
+<li>Supported Environments<ul>
+<li>Java</li>
+<li>Ruby</li>
+<li>Python</li>
+<li>Go</li>
+<li>Node.js</li>
+<li>Android</li>
+<li>.NET Core</li>
+<li>PHP</li>
+<li>Docker : extend any environment you like</li>
+</ul>
+</li>
+<li>Local Build<ul>
+<li>In case of need of deep troubleshooting beyond logs...</li>
+<li>You can run CodeBuild locally on your desktop (after installing Docker) - For this, leverage the <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/use-codebuild-agent.html">CodeBuild Agent</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="working-mode">Working Mode<a class="headerlink" href="#working-mode" title="Permanent link">#</a></h3>
+<ul>
+<li>Two ways to run CodeBuild<ul>
+<li>Source Code<ul>
+<li>buildspec.yml</li>
+</ul>
+</li>
+<li>By building a Docker image<ul>
+<li>AWS Managed or Custom</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A CodeBuild Container is created</li>
+<li>You can add an optional S3 Cache bucket<ul>
+<li>Cache while you do multiple builds<ul>
+<li>dependencies</li>
+<li>artifacts</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Output to an S3 bucket</li>
+<li>Save logs using CloudWatch or S3</li>
+</ul>
+<h3 id="buildspec-file">BuildSpec File<a class="headerlink" href="#buildspec-file" title="Permanent link">#</a></h3>
+<ul>
+<li>buildspec.yml file must be at the root of your code</li>
+<li>Define environment variables:<ul>
+<li>Plaintext variables</li>
+<li>Secure secrets: use SSM Parameter store</li>
+</ul>
+</li>
+<li>Phases (specify commands to run):<ul>
+<li>Install: install dependencies you may need for your build</li>
+<li>Pre build: final commands to execute before build</li>
+<li>Build: actual build commands</li>
+<li>Post build: finishing touches (zip output for example)</li>
+</ul>
+</li>
+<li>Artifacts: What to upload to S3 (encrypted with KMS)</li>
+<li>Cache: Files to cache (usually dependencies) to S3 for future build speedup</li>
+</ul>
+<h1 id="code-deploy">Code Deploy<a class="headerlink" href="#code-deploy" title="Permanent link">#</a></h1>
+<ul>
+<li>Deploy your application automatically to EC2 instances, On-premise servers, lambda functions, ECS services, etc</li>
+<li>A file named appspec.yml defines how the deployment happens</li>
+<li>Gradual deployment control</li>
+<li>These instances are not managed by Elastic Beanstalk</li>
+<li>There are several ways to handle deployments using open source tools (Ansible, Terraform, Chef, Puppet, etc...)<ul>
+<li>CodeDeploy is the alternative to these tools</li>
+</ul>
+</li>
+</ul>
+<h3 id="working-mode_1">Working Mode<a class="headerlink" href="#working-mode_1" title="Permanent link">#</a></h3>
+<ul>
+<li>Each EC2 Machine (or On Premise machine) must be running the CodeDeploy Agent</li>
+<li>The agent is continuously polling AWS CodeDeploy for work to do</li>
+<li>CodeDeploy sends appspec.yml file.</li>
+<li>Application is pulled from GitHub or S3</li>
+<li>EC2 will run the deployment instructions</li>
+<li>CodeDeploy Agent will report of success / failure of deployment on the instance</li>
+</ul>
+<p><strong>Additional information</strong>
+- EC2 instances are grouped by deployment group (dev / test / prod)
+- Lots of flexibility to define any kind of deployments
+- CodeDeploy can be chained into CodePipeline and use artifacts from there
+- CodeDeploy can re-use existing setup tools, works with any application, auto-scaling integration
+- Note: Blue / Green only works with EC2 instances (not on premise)
+- Support for AWS Lambda deployments
+- CodeDeploy does not provision resources</p>
+<h3 id="primary-components">Primary Components<a class="headerlink" href="#primary-components" title="Permanent link">#</a></h3>
+<ul>
+<li>Application: unique name</li>
+<li>Compute platform: EC2/On-Premise or Lambda</li>
+<li>Deployment configuration: Deployment rules for success / failures<ul>
+<li>EC2/On-Premise: you can specify the minimum number of healthy instances for the deployment.</li>
+<li>AWS Lambda: specify how traffic is routed to your updated Lambda function versions.</li>
+</ul>
+</li>
+<li>Deployment group: group of tagged instances (allows to deploy gradually)</li>
+<li>Deployment type: In-place deployment or Blue/green deployment:</li>
+<li>IAM instance profile: need to give EC2 the permissions to pull from S3 / GitHub</li>
+<li>Application Revision: application code + appspec.yml file</li>
+<li>Service role: Role for CodeDeploy to perform what it needs</li>
+<li>Target revision: Target deployment application version</li>
+</ul>
+<h3 id="appspec-file">AppSpec File<a class="headerlink" href="#appspec-file" title="Permanent link">#</a></h3>
+<p>The AppSpec File is used to define the parameters that will be used for a CodeDeploy deployment. The file structure depends on whether you are deploying to Lambda or EC2 / On Premises.
+- File section: how to source and copy from S3 / GitHub to filesystem
+- Hooks: set of instructions to do to deploy the new version (hooks can have timeouts).The order is:
+    - Traffic Blocking Hooks
+        - BeforeBlockTraffic: Run tasks on instances before they are deregistered from a load balancer.
+        - BlockTraffic: Deregister instances from a load balancer
+        - AfterBlockTraffic: Run tasks on instances after they are Deregistered from a load balancer.
+    - ApplicationStop: Gracefully stop the application in preparation for deploying the new revision
+    - DownloadBundle: The CodeDeploy agent copies the application revision files to a temporary location.
+    - BeforeInstall: Details of any pre-installation scripts, e.g. backing up the current version, decrypting files.
+    - Install: The CodeDeploy agent copies the application revision files from their temporary location to their correct location
+    - AfterInstall: Details of any post-installation scripts (e.g. configuration tasks, change file permissions, etc.)
+    - ApplicationStart: Restarts any services that were stopped during ApplicationStop.
+    - <strong>ValidateService</strong>: Details of any tests to validate the service.
+    - Traffic Allowances Hooks
+        - BeforeAllowTraffic: Run tasks on instances before they are registered with a load balancer.
+        - AllowTraffic: Register instances with a load balancer.
+        - AfterAllowTraffic: Run tasks on instances after they are registered with a load balancer.</p>
+<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">#</a></h2>
+<h3 id="deployment-config">Deployment Config<a class="headerlink" href="#deployment-config" title="Permanent link">#</a></h3>
+<ul>
+<li>Configs:<ul>
+<li>One a time: one instance at a time, one instance fails =&gt; deployment stops</li>
+<li>Half at a time: 50%</li>
+<li>All at once: quick but no healthy host, downtime. Good for dev</li>
+<li>Custom: min healthy host = 75%</li>
+</ul>
+</li>
+<li>Failures:<ul>
+<li>Instances stay in “failed state”</li>
+<li>New deployments will first be deployed to “failed state” instances</li>
+<li>To rollback: redeploy old deployment or enable automated rollback for failures</li>
+</ul>
+</li>
+<li>Deployment Targets:<ul>
+<li>Set of EC2 instances with tags</li>
+<li>Directly to an ASG</li>
+<li>Mix of ASG / Tags, so you can build deployment segments</li>
+<li>Customization in scripts with DEPLOYMENT_GROUP_NAME environment variables</li>
+</ul>
+</li>
+</ul>
+<h3 id="deployment-types">Deployment Types<a class="headerlink" href="#deployment-types" title="Permanent link">#</a></h3>
+<ul>
+<li>In place deployment<ul>
+<li>half the time</li>
+</ul>
+</li>
+<li>Blue / Green Deployment<ul>
+<li>Attached to one auto-scaling group of instances</li>
+<li>new auto-scaling group of instances created (green)</li>
+<li>if it passes the health checks, version 1 (original asg) is deleted (blue)</li>
+</ul>
+</li>
+</ul>
+<h4 id="lambda-ecs">Lambda &amp; ECS<a class="headerlink" href="#lambda-ecs" title="Permanent link">#</a></h4>
+<ul>
+<li>Can help traffic shift for AWS Lambda and deployment of new task definition for ECS </li>
+<li>only with Blue/Green deployment
+<strong>Traffic Shifting Options:</strong></li>
+<li>Linear: grow traffic every N minutes until 100%</li>
+<li>Canary: try X percent then 100%</li>
+<li>AllAtOnce: immediate</li>
+</ul>
+<h3 id="redeploy-and-rollbacks">Redeploy and Rollbacks<a class="headerlink" href="#redeploy-and-rollbacks" title="Permanent link">#</a></h3>
+<ul>
+<li>Rollback = redeploy a previously deployed revision of your application</li>
+<li>Deployments can be rolled back:<ul>
+<li>Automatically – rollback when a deployment fails or rollback when a CloudWatch Alarm thresholds are met</li>
+<li>Manually</li>
+</ul>
+</li>
+<li>Disable Rollbacks — do not perform rollbacks for this deployment</li>
+<li>If a roll back happens, CodeDeploy redeploys the last known good revision as a new deployment</li>
+</ul>
+<h1 id="code-pipeline">Code Pipeline<a class="headerlink" href="#code-pipeline" title="Permanent link">#</a></h1>
+<p>AWS CodePipeline is a fully managed Continuous Integration and Continuous Delivery service.
+CodePipeline allows you to model your release process as a workflow or pipeline made up of different tasks, such as the simple workflow represented below:
+Code Update -&gt; Build -&gt; Test -&gt; Deploy</p>
+<p><strong>Notes:</strong>
+- Continuous delivery
+- Visual workflow
+- Source: GitHub, CodeCommit, Amazon S3
+- Build: CodeBuild, Jenkins, etc...
+- Load Testing: 3<sup>rd</sup> par ty tools
+- Deploy: AWS CodeDeploy, Beanstalk, CloudFormation, ECS...
+- Made of stages:
+    - Each stage can have sequential actions and / or parallel actions
+    - Stages examples: Build, Test, Deploy, Load Test, etc...
+    - Manual approval can be defined at any stage</p>
+<h2 id="artifacts">Artifacts<a class="headerlink" href="#artifacts" title="Permanent link">#</a></h2>
+<ul>
+<li>Each pipeline stage can create ”artifacts”</li>
+<li><strong>Artifacts</strong> are Amazon S3 buckets that CodePipeline uses to store artifacts used by pipelines. When you first use the CodePipeline console in a region to create a pipeline, CodePipeline automatically generates this S3 bucket in the AWS region.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
+<ul>
+<li>CodePipeline state changes happen in <strong>AWS CloudWatch Events</strong>, which can in return create SNS notifications.</li>
+<li>Ex: you can create events for failed pipelines • Ex: you can create events for cancelled stages</li>
+<li>If CodePipeline fails a stage, your pipeline stops, and you can get information in the console</li>
+<li>AWS CloudTrail can be used to audit AWS API calls</li>
+<li>If Pipeline can’t perform an action, make sure the “IAM Service Role” attached does have enough permissions (IAM Policy)</li>
+<li>Make sure to have Versions enabled in the S3 bucket</li>
+</ul>
+<h1 id="code-commit">Code Commit<a class="headerlink" href="#code-commit" title="Permanent link">#</a></h1>
+<p>Code Commit is a fully managed source control service that enables companies to host secure and highly scalable private Git repositories</p>
+<p><strong>Notes:</strong>
+- <strong>Version Control</strong> is the ability to understand changes that happened to the code over time (and possibly roll back)
+- This is enabled by using a version control system such as Git
+- A git repository can live on your machine or on a central online repository
+- Benefits:
+    - Collaborate with a team of developers
+    - Make sure the code is backed-up somewhere
+    - Makes sure it's fully viewable and auditable
+- AWS CodeCommit
+    - Private git repositories
+    - No size limits on the repositories (scale seamlessly)
+    - Fully managed and highly available
+    - The code is only in your AWS cloud account
+    - Increased security and compliance
+    - Secure (encrypted access control, etc)
+- CodeCommit Security
+    - Interactions are done using git
+    - Authentication with Git
+        - SSH Keys: AWS Users can configure SSH keys in their IAM Console
+        - HTTPS: Done through AWS CLI Authentication helper or generate HTTPS credentials
+        - MFA: Multi-Factor Authentication
+    - Authorization with Git
+        - IAM Policies manage user / roles rights to the repositories
+    - Encryption
+        - Repositories are automatically encrypted at rest using KMS
+        - Encrypted in transit (can only user HTTPS or SSH both secure)
+    - Cross Account access:
+        - Do not share your SSH keys
+        - Do not share your AWS credentials
+        - Use IAM Role in your AWS account and use AWS STS (with AssumeRole API)</p>
+<h3 id="notifications">Notifications<a class="headerlink" href="#notifications" title="Permanent link">#</a></h3>
+<ul>
+<li>You can trigger notifications in CodeCommit using AWS SNS(Simple Notification Service) or AWS Lambda or AWS CloudWatch Event Rules</li>
+<li>Use cases for notifications SNS / AWS Lambda notifications:<ul>
+<li>Deletion of branches</li>
+<li>Trigger for pushes that happens in master branch</li>
+<li>Notify external Build System</li>
+<li>Trigger AWS Lambda function to perform codebase analysis (maybe credentials got committed in the code?)</li>
+</ul>
+</li>
+<li>Use cases for CloudWatch Event Rules:<ul>
+<li>Trigger for pull request updates (created / updated / deleted / commented)</li>
+<li>Commit comment events</li>
+<li>CloudWatch Event Rules goes into an SNS topic</li>
+</ul>
+</li>
+</ul>
+<h2 id="exam-tips">Exam Tips<a class="headerlink" href="#exam-tips" title="Permanent link">#</a></h2>
+<ul>
+<li>What are the MINIMUM properties required in the 'resources' section of the AppSpec file for CodeDeploy to deploy the function successfully?<ul>
+<li>name, alias, currentversion, and targetversion</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../028-elastic-beanstalk/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 028 AWS Elastic Beanstalk">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                028 AWS Elastic Beanstalk
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../030-cloudformation/" class="md-footer__link md-footer__link--next" aria-label="Next: 030 AWS CloudFormation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                030 AWS CloudFormation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 SECOND-BRAIN - ____
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.tabs", "navigation.top", "navigation.path", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
