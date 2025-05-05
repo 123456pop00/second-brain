@@ -24,4 +24,10 @@ pip install mkdocs mkdocs-material
 
 echo Dang build site...
 cd mkdocs
-mkdocs serve
+mkdocs build
+
+echo Dang deploy len GitHub Pages...
+mkdocs gh-deploy
+
+echo Hoan thanh! Nhan phim bat ky de thoat...
+pause
