@@ -1,0 +1,282 @@
+site_name: SECOND-BRAIN DOCUMENTATION
+
+nav:
+  - Workflows:
+    - Git: workflows/git.md
+    - Task: workflows/task.md
+    - Conventions:
+      - Coding:
+        - C#: conventions/coding/c-sharp.md
+        - JavaScript: conventions/coding/javascript.md
+        - TypeScript: conventions/coding/type-script.md
+        - HTML: conventions/coding/html.md
+        - CSS-SCSS: conventions/coding/css-scss.md
+    - Checklists:
+      - V1: checklists/v1/index.md
+      - V2: checklists/v2/index.md
+    - MR Templates:
+      - V1: merge-request-templates/v1/index.md
+      - V2: merge-request-templates/v2/index.md
+
+  - Database:
+    - Tổng quan: database/index.md
+
+  - Contributions:
+    - Cài đặt môi trường: guides/environments.md
+    - Viết tài liệu và submit tài liệu lên hệ thống: guides/contributions.md
+    - Gắn thẻ cho tài liệu: guides/tagging.md
+    - Tools: tools/index.md
+
+  - Tags: tags.md
+
+  - Examples:
+    - Markdown: examples/markdown/cheat-sheet.md
+    - PlantUML:
+      - Biểu đồ tuần tự: examples/plantuml/sequence-diagram.md
+      - Biểu đồ ca sử dụng: examples/plantuml/use-case-diagram.md
+      - Biểu đồ hoạt động: examples/plantuml/activity-diagram.md
+
+  - Blog: 
+    - blog/index.md
+
+  - Cloud:
+    - AWS:
+      - Tổng quan về AWS services: cloud/aws/index.md
+      - AWS services:
+        - 001 Auto Scaling Group (ASG): cloud/aws/services/001-asg.md
+        - 001 AWS Identity Access and Organizations: cloud/aws/services/001-aws-identity-access-and-organizations.md
+        - 002 AWS EC2: cloud/aws/services/002-aws-ec2.md
+        - 003 AWS ELB & ASG: cloud/aws/services/003-aws-elb-asg.md
+        - 004 AWS S3: cloud/aws/services/004-aws-s3.md
+        - 005 AWS Databases: cloud/aws/services/005-aws-databases.md
+        - 006 AWS Compute: cloud/aws/services/006-aws-compute.md
+        - 007 AWS Infrastructure Management: cloud/aws/services/007-aws-infrastructure-management.md
+        - 008 AWS Global Infrastructure: cloud/aws/services/008-aws-global-infrastructure.md
+        - 009 AWS Cloud Integration: cloud/aws/services/009-aws-cloud-integration.md
+        - 010 AWS Cloud Monitoring: cloud/aws/services/010-aws-cloud-monitoring.md
+        - 011 AWS VPC: cloud/aws/services/011-aws-vpc.md
+        - 012 AWS Security: cloud/aws/services/012-aws-security.md
+        - 013 AWS Machine Learning: cloud/aws/services/013-aws-machine-learning.md
+        - 014 AWS Pricing and Billing: cloud/aws/services/014-aws-pricing-and-billing.md
+        - 015 AWS Cognito: cloud/aws/services/015-aws-cognito.md
+        - 016 AWS Architecting and Ecosystem: cloud/aws/services/016-aws-architecting-and-ecosystem.md
+        - 017 AWS Route 53: cloud/aws/services/017-aws-route-53.md
+        - 018 AWS Lambda: cloud/aws/services/018-aws-lambda.md
+        - 019 AWS API Gateway: cloud/aws/services/019-apigateway.md
+        - 020 DynamoDB: cloud/aws/services/020-dynamodb.md
+        - 021 AWS SAM: cloud/aws/services/021-sam.md
+        - 022 AWS Step Functions: cloud/aws/services/022-step-functions.md
+        - 023 AWS Cognito: cloud/aws/services/023-cognito.md
+        - 024 AWS AppSync: cloud/aws/services/024-app-sync.md
+        - 025 AWS SQS: cloud/aws/services/025-sqs.md
+        - 026 AWS SNS: cloud/aws/services/026-sns.md
+        - 027 AWS Kinesis: cloud/aws/services/027-kinesis.md
+        - 028 AWS Elastic Beanstalk: cloud/aws/services/028-elastic-beanstalk.md
+        - 029 AWS Code Services: cloud/aws/services/029-aws-code-services.md
+        - 030 AWS CloudFormation: cloud/aws/services/030-cloudformation.md
+        - 031 AWS CloudWatch: cloud/aws/services/031-cloudwatch.md
+        - 032 AWS KMS: cloud/aws/services/032-kms.md
+        - 033 AWS Athena: cloud/aws/services/033-aws-athena.md
+        - 034 AWS OpenSearch: cloud/aws/services/034-aws-opensearch.md
+        - 035 AWS Aurora Database: cloud/aws/services/035-aurora-database.md
+        - 036 AWS Fargate Compute: cloud/aws/services/036-fargate-compute.md
+        - 037 AWS ECS: cloud/aws/services/037-ecs.md
+        - 038 AWS XRay: cloud/aws/services/038-xray.md
+      - Exam questions: aws/exam-questions.md
+
+  - About:  about.md
+
+not_in_nav: |
+  /tutorials/**/*.md
+
+theme:
+  name: 'material'
+  icon:
+    repo: fontawesome/brands/git-alt
+  logo: assets/images/logo.png
+  favicon: assets/images/logo.png
+  light: default/light
+  dark: default/dark
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    # - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    # - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    # - navigation.tracking
+    - navigation.path
+
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  # language: vi
+  # features:
+  #   - navigation.footer
+
+repo_url: https://github.com/123456pop00/second-brain
+repo_name: second-brain-documentation
+
+plugins:
+  - blog:
+      enabled: true
+      blog_toc: true
+      authors_file: "{blog}/.authors.yml"
+  - tags:
+      tags_file: tags.md
+
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+      background: white
+      shadow: true
+      manual: false
+
+  # do not minify html because plantuml
+  # - minify:
+  #     minify_html: true
+  # - plantuml:
+  #     puml_keyword: plantuml
+  #     puml_url: http://puml:8080
+  #     verify_ssl: false
+  #     verbose: false
+
+  #     theme:
+  #       enabled: false
+
+  #     interaction:
+  #       enabled: true
+
+  - markdownextradata
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: false
+      clickable_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets
+  - toc:
+      permalink: "#"
+
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  generator: false
+  # analytics:
+  #   provider: google
+  #   property: !ENV GOOGLE_ANALYTICS_KEY
+  # social:
+  #   - icon: fontawesome/brands/github
+  #     link: https://github.com/squidfunk
+  #   - icon: fontawesome/brands/docker
+  #     link: https://hub.docker.com/r/squidfunk/mkdocs-material/
+  #   - icon: fontawesome/brands/python
+  #     link: https://pypi.org/project/mkdocs-material/
+  #   - icon: fontawesome/brands/mastodon
+  #     link: https://fosstodon.org/@squidfunk
+  #   - icon: fontawesome/brands/x-twitter
+  #     link: https://x.com/squidfunk
+  # alternate:
+  #   - name: Tiếng Việt
+  #     link: /vi/ 
+  #     lang: vi
+
+  #   - name: English
+  #     link: /en/ 
+  #     lang: en
+
+  #   - name: Japanese
+  #     link: /jp/
+  #     lang: jp
+  SECOND-BRAIN:
+    # SharedWorkspace: 
+    # InternalWorkspace:
+    #   PathBase: X:\NOS\OS3\
+    # SERVER:
+    #   IP: 10.0.64.147
+    # TaskManager:
+    #   Tool:
+    #     Name: Redmine
+    #     Url: http://localhost:8080
+    # ChatTool:
+    #   Name: Rocket Chat
+    #   Url: /environments/rocket-chat
+    # RocketChat:
+    #   BackendUrl: http://192.168.31.96:20000/
+
+copyright: Copyright &copy; 2024 SECOND-BRAIN - ____

@@ -1,0 +1,1 @@
+# Tư tưởng về scenarios

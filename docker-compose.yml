@@ -1,0 +1,31 @@
+services:
+  puml:  
+    image: plantuml/plantuml-server
+    container_name: plantuml-server
+    restart: unless-stopped
+    ports:  
+      - '8088:8080'
+    networks:
+      - second-brain-network
+
+  second-brain-documentation:
+    image: squidfunk/mkdocs-material
+    build: 
+      context: .
+      dockerfile: ./.Dockerfile
+    container_name: second-brain-documentation
+    ports:
+      - 8089:8000
+    restart: unless-stopped
+    volumes:
+      - ./mounted/mkdocs:/docs
+    stdin_open: true
+    tty: true
+    networks:
+      - second-brain-network
+    depends_on:
+      - puml
+
+networks:
+  second-brain-network:
+    external: true

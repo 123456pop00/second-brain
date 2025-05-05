@@ -1,0 +1,1 @@
+# Cách cài đặt môi trường cho scenarios
